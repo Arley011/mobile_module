@@ -172,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
             _showOrHideMap();
             if (_isMapShown) {
               _appleMapController.animateCamera(CameraUpdate.newLatLngZoom(
-                  LatLng(weather.city.latitude, weather.city.longitude), 17));
+                  LatLng(weather.city.latitude, weather.city.longitude), 1000));
             }
           },
         ),
