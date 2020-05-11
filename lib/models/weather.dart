@@ -40,7 +40,7 @@ class WeatherModel {
       city: City.fromJson(map),
       weatherStr: map['weather'][0]['main'],
       weatherIconUrl: map['iconUrl'],
-      temp: map['main']['temp'] as double,
+      temp: (map['main']['temp'] as num).toDouble(),
       humidity: map['main']['humidity'],
       clouds: map['clouds']['all'],
       windSpeed: (map['wind']['speed'] as num).toDouble(),

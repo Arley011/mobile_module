@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mobile_module/ui/home/home_screen.dart';
 
+import 'blocs/search_bloc.dart';
 import 'blocs/weather_bloc.dart';
 
 void main() {
@@ -13,15 +14,19 @@ class WeatherApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return CupertinoApp(
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<WeatherBloc>(
+          create: (_) => WeatherBloc(),
+        ),
+        BlocProvider<SearchBloc>(
+          create: (_) => SearchBloc(),
+        )
+      ],
+      child: CupertinoApp(
         title: 'Flutter',
         debugShowCheckedModeBanner: false,
-        home: MultiBlocProvider(
-          providers: [
-            BlocProvider<WeatherBloc>(
-              create: (_) => WeatherBloc(),
-            )
-          ],
+        home: HomeScreen(),
 //          child: CupertinoPageScaffold(
 //          navigationBar: CupertinoNavigationBar(
 //            padding: EdgeInsetsDirectional.only(start: 10, end: 10),
@@ -35,8 +40,9 @@ class WeatherApp extends StatelessWidget {
 //            ),
 //            middle: Text('Kiev'),
 //          ),
-          child: HomeScreen(),
+
 //          ),
-        ));
+      ),
+    );
   }
 }

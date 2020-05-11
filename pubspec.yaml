@@ -29,6 +29,7 @@ dependencies:
   weather: ^1.1.1
   super_enum: ^0.4.2
   flutter_bloc: ^4.0.0
+  apple_maps_flutter: ^0.1.1+1
 
 
   # The following adds the Cupertino Icons font to your application.
